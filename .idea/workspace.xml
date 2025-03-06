@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="Remove no necessary comments">
-      <change afterPath="$PROJECT_DIR$/capital_gains/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/resources/input.txt" afterDir="false" />
+    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="Add logic to read input data">
+      <change afterPath="$PROJECT_DIR$/capital_gains/configuration/ConfigLoader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capital_gains/configuration/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/capital_gains/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/capital_gains/main.py" afterDir="false" />
     </list>
@@ -14,6 +15,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -47,6 +55,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
@@ -114,12 +123,21 @@
       <option name="project" value="LOCAL" />
       <updated>1741227134178</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add logic to read input data">
+      <option name="closed" value="true" />
+      <created>1741228413835</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741228413835</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Remove no necessary comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove no necessary comments" />
+    <MESSAGE value="Add logic to read input data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add logic to read input data" />
   </component>
 </project>

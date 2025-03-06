@@ -1,0 +1,7 @@
+app:
+  name: "Capital Gains"
+  version: "1.0"
+
+taxes:
+  sell:
+    percentage: 20.0

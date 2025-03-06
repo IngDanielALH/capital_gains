@@ -1,9 +1,18 @@
 import sys
 import json
 
+from capital_gains.configuration import ConfigLoader
+
 
 def main():
     print("Inicio del sistema")
+
+    config_loader = ConfigLoader()
+    config = config_loader.config
+    if config:
+        tax_percentage = config.get('taxes', {}).get('sell', {}).get('percentage', 0.0)
+        print(f"Impuesto sobre ganancias: {tax_percentage}%")
+
     input_data = sys.stdin.read()
 
     try:
