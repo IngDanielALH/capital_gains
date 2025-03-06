@@ -5,3 +5,4 @@ app:
 taxes:
   sell:
     percentage: 20.0
+    limit_without_taxes: 20000
