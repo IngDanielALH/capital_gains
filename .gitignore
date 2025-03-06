@@ -1,0 +1,4 @@
+# Archivos de configuración de IntelliJ IDEA / PyCharm
+.idea/
+*.iml
+*.xml
