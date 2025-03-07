@@ -1,3 +1,4 @@
+import json
 import unittest
 
 from capital_gains.dto.TransactionDTO import TransactionDTO
@@ -15,16 +16,26 @@ def create_transaction(operation, unit_cost, quantity):
 
 class TestGainService(unittest.TestCase):
     def test_case_1(self):
-        # Datos de las operaciones
-        transactions_data = [
-            (Constants.BUY_OPERATION, 10.00, 100),
-            (Constants.SELL_OPERATION, 15.00, 50),
-            (Constants.SELL_OPERATION, 15.00, 50)
+
+        transactions_json = '''
+        [
+            {"operation": "buy", "unit-cost": 10.00, "quantity": 100},
+            {"operation": "sell", "unit-cost": 15.00, "quantity": 50},
+            {"operation": "sell", "unit-cost": 15.00, "quantity": 50}
+        ]
+        '''
+
+        operations = [
+            TransactionDTO.Builder()
+            .set_operation(t["operation"])
+            .set_unit_cost(t["unit-cost"])
+            .set_quantity(t["quantity"])
+            .build()
+            for t in json.loads(transactions_json)
         ]
 
-        # Crear las operaciones con un bucle
-        operations = [create_transaction(op, cost, qty) for op, cost, qty in transactions_data]
         result = parse_operations(operations, 20, 20000)
+
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}]
 
         self.assertEqual(expected, result)
