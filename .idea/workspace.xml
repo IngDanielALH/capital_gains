@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="Add logic to work with an yml configuration file">
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capital_gains/service/GainsService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capital_gains/service/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capital_gains/utils/Constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capital_gains/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit_tests/test_gains_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capital_gains/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/capital_gains/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +48,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/manage__data",
+    "git-widget-placeholder": "feature/bussines__logic",
     "last_opened_file_path": "/Users/danielalejandrolopezhernandez/Documents/Proyectos/Python/capital_gains/capital_gains"
   }
 }]]></component>
@@ -55,7 +64,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -78,6 +87,30 @@
       <option name="INPUT_FILE" value="$PROJECT_DIR$/tests/resources/input.txt" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="capital_gains" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_gains_service.TestGainsService.test_calculate_weighted_price&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -144,5 +177,16 @@
     <MESSAGE value="Add logic to read input data" />
     <MESSAGE value="Add logic to work with an yml configuration file" />
     <option name="LAST_COMMIT_MESSAGE" value="Add logic to work with an yml configuration file" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/capital_gains/service/GainsService.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
