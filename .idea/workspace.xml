@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="Add logic to work with an yml configuration file">
-      <change afterPath="$PROJECT_DIR$/capital_gains/service/GainsService.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capital_gains/service/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capital_gains/utils/Constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capital_gains/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit_tests/test_gains_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/utils/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capital_gains/dto/TaxDTO.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capital_gains/dto/TransactionDTO.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/integration_tests/test_gain_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/capital_gains/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/capital_gains/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capital_gains/service/GainsService.py" beforeDir="false" afterPath="$PROJECT_DIR$/capital_gains/service/GainsService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/resources/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resources/input.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for test_gain_service.TestGainService.executor": "Run",
+    "Python tests.Python tests for test_gain_service.TestGainService.test_case_1.executor": "Run",
+    "Python tests.Python tests for test_gains_service.TestGainsService.executor": "Run",
     "Python tests.Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price.executor": "Run",
+    "Python tests.Python tests in tests.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "feature/bussines__logic",
@@ -64,7 +66,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price">
+  <component name="RunManager" selected="Python tests.Python tests for test_gain_service.TestGainService">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -87,6 +89,51 @@
       <option name="INPUT_FILE" value="$PROJECT_DIR$/tests/resources/input.txt" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_gain_service.TestGainService" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="capital_gains" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/integration_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_gain_service.TestGainService&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_gain_service.TestGainService.test_case_1" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="capital_gains" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/integration_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_gain_service.TestGainService.test_case_1&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_gains_service.TestGainsService" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="capital_gains" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_gains_service.TestGainsService&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -102,12 +149,35 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="capital_gains" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
+      <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_1" />
+      <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService" />
+      <item itemvalue="Python tests.Python tests in tests" />
       <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
+        <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService" />
+        <item itemvalue="Python tests.Python tests in tests" />
+        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_1" />
         <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService.test_calculate_weighted_price" />
       </list>
     </recent_temporary>
@@ -171,6 +241,17 @@
     <option name="localTasksCounter" value="6" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Remove no necessary comments" />
@@ -183,10 +264,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/capital_gains/service/GainsService.py</url>
-          <line>4</line>
-          <option name="timeStamp" value="2" />
+          <line>11</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="tests">
+        <watch expression="benefit" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

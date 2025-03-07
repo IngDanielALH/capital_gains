@@ -2,6 +2,7 @@ import sys
 import json
 
 from capital_gains.configuration import ConfigLoader
+from capital_gains.dto.TransactionDTO import TransactionDTO
 from capital_gains.service import parse_operations
 
 
@@ -20,8 +21,15 @@ def main():
         input_data = sys.stdin.read()
 
         try:
-            operations = json.loads(input_data)
-            parse_operations(operations, tax_percentage, limit_without_tax)
+            operations = [
+                TransactionDTO.Builder()
+                .set_operation(t["operation"])
+                .set_unit_cost(t["unit-cost"])
+                .set_quantity(t["quantity"])
+                .build()
+                for t in json.loads(input_data)
+            ]
+            print(parse_operations(operations, tax_percentage, limit_without_tax))
 
         except json.JSONDecodeError:
             print("Error al parsear información de entrada")
