@@ -15,10 +15,11 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
     total_lose = 0
 
     for operation in operations:
-        current_operation = operation.get_operation()
-        unit_cost = operation.get_unit_cost()
-        quantity = operation.get_quantity()
-        pay_taxes = False
+        current_operation, unit_cost, quantity = (
+            operation.get_operation(),
+            operation.get_unit_cost(),
+            operation.get_quantity(),
+        )
 
         if current_operation == Constants.BUY_OPERATION:
 
