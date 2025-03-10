@@ -29,7 +29,7 @@ def main():
                     .set_unit_cost(t["unit-cost"])
                     .set_quantity(t["quantity"])
                     .build()
-                    for t in json.loads(block)  # Procesamos cada JSON individualmente
+                    for t in json.loads(block)
                 ]
                 results.append(parse_operations(operations, tax_percentage, limit_without_tax))
             except json.JSONDecodeError:

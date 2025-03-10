@@ -22,7 +22,7 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
         )
 
         if current_operation == Constants.BUY_OPERATION:
-
+            # Cálculo para compras
             if is_first_buy:
                 weighted_average_price = unit_cost
                 is_first_buy = False

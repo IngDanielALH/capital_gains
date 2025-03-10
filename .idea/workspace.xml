@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="corrección final de la lógica">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capital_gains/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/capital_gains/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/integration_tests/test_gain_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/test_gain_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/TestMainFunction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/utils/utils.py" beforeDir="false" />
-    </list>
+    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="Agrego ajustes para imprimir en formato de Json en pantalla" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +65,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python tests.Python tests for test_gains_service.TestGainsService">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -180,8 +174,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService" />
-        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
         <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction" />
+        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
         <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction.test_main_multiple_json_inputs" />
         <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_9" />
       </list>
@@ -283,7 +277,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741566130194</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Agrego lógica para trabajar con múltiples entradas simultaneamente">
+      <option name="closed" value="true" />
+      <created>1741577958226</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1741577958226</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Agrego ajustes para imprimir en formato de Json en pantalla">
+      <option name="closed" value="true" />
+      <created>1741578216647</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741578216647</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,18 +316,11 @@
     <MESSAGE value="Cambio de formato la entrada del test" />
     <MESSAGE value="versión con solo test 9 fallando" />
     <MESSAGE value="corrección final de la lógica" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrección final de la lógica" />
+    <MESSAGE value="Agrego lógica para trabajar con múltiples entradas simultaneamente" />
+    <MESSAGE value="Agrego ajustes para imprimir en formato de Json en pantalla" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agrego ajustes para imprimir en formato de Json en pantalla" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/capital_gains/main.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="tests">
         <watch expression="benefit" />
