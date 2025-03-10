@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature/bussines_logic" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,7 +43,7 @@
   "keyToString": {
     "Python tests.Python tests for test_gain_service.TestGainService.executor": "Run",
     "Python tests.Python tests for test_gain_service.TestGainService.test_case_1.executor": "Run",
-    "Python tests.Python tests for test_gain_service.TestGainService.test_case_2.executor": "Debug",
+    "Python tests.Python tests for test_gain_service.TestGainService.test_case_2.executor": "Run",
     "Python tests.Python tests for test_gain_service.TestGainService.test_case_3.executor": "Run",
     "Python tests.Python tests for test_gain_service.TestGainService.test_case_6.executor": "Run",
     "Python tests.Python tests for test_gain_service.TestGainService.test_case_7.executor": "Run",
@@ -53,7 +53,7 @@
     "Python tests.Python tests in tests.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/bussines__logic",
+    "git-widget-placeholder": "feature/bussines__logic__correccion",
     "last_opened_file_path": "/Users/danielalejandrolopezhernandez/Documents/Proyectos/Python/capital_gains/capital_gains"
   }
 }]]></component>
@@ -66,7 +66,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_gain_service.TestGainService">
+  <component name="RunManager" selected="Python tests.Python tests for test_gain_service.TestGainService.test_case_9">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -174,11 +174,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_9" />
         <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
+        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_6" />
         <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_2" />
         <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_7" />
-        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_9" />
-        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_6" />
       </list>
     </recent_temporary>
   </component>
@@ -262,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741395806113</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="versión con solo test 9 fallando">
+      <option name="closed" value="true" />
+      <created>1741559795504</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741559795504</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,6 +311,8 @@
         <watch expression="total_lose" />
         <watch expression="weighted_average_price" />
         <watch expression="current_operation" />
+        <watch expression="sell_total_amount" />
+        <watch expression="new_benefit" />
       </configuration>
     </watches-manager>
   </component>
