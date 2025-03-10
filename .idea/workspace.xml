@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="elimino comentarios" />
+    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="elimino comentarios">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/integration_tests/TestGainService.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/test_gain_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/integration_tests/TestMainFunction.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/test_main_function.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/TestRound.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit_tests/test_round.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +58,7 @@
     "Python tests.Python tests in tests.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/refactor",
+    "git-widget-placeholder": "feature/readme",
     "last_opened_file_path": "/Users/danielalejandrolopezhernandez/Documents/Proyectos/Python/capital_gains/capital_gains"
   }
 }]]></component>
@@ -65,7 +71,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -88,7 +94,7 @@
       <option name="INPUT_FILE" value="$PROJECT_DIR$/tests/resources/input.txt" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for TestMainFunction.TestMainFunction" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.integration_tests.test_gain_service.TestGainService" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -99,11 +105,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestMainFunction.TestMainFunction&quot;" />
+      <option name="_new_target" value="&quot;tests.integration_tests.test_gain_service.TestGainService&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for TestMainFunction.TestMainFunction.test_main_multiple_json_inputs" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.integration_tests.test_gain_service.TestGainService.test_case_9" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,11 +120,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestMainFunction.TestMainFunction.test_main_multiple_json_inputs&quot;" />
+      <option name="_new_target" value="&quot;tests.integration_tests.test_gain_service.TestGainService.test_case_9&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.integration_tests.TestGainService.TestGainService" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.integration_tests.test_main_function.TestMainFunction" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,11 +135,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.integration_tests.TestGainService.TestGainService&quot;" />
+      <option name="_new_target" value="&quot;tests.integration_tests.test_main_function.TestMainFunction&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.integration_tests.TestGainService.TestGainService.test_case_9" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.integration_tests.test_main_function.TestMainFunction.test_main_multiple_json_inputs" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,11 +150,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.integration_tests.TestGainService.TestGainService.test_case_9&quot;" />
+      <option name="_new_target" value="&quot;tests.integration_tests.test_main_function.TestMainFunction.test_main_multiple_json_inputs&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.unit_tests.TestRound.TestRound" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.unit_tests.test_round.TestRound" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,25 +165,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.unit_tests.TestRound.TestRound&quot;" />
+      <option name="_new_target" value="&quot;tests.unit_tests.test_round.TestRound&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python tests.Python tests for tests.integration_tests.TestGainService.TestGainService" />
-      <item itemvalue="Python tests.Python tests for tests.integration_tests.TestGainService.TestGainService.test_case_9" />
-      <item itemvalue="Python tests.Python tests for tests.unit_tests.TestRound.TestRound" />
-      <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction" />
-      <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction.test_main_multiple_json_inputs" />
+      <item itemvalue="Python tests.Python tests for tests.integration_tests.test_gain_service.TestGainService.test_case_9" />
+      <item itemvalue="Python tests.Python tests for tests.integration_tests.test_main_function.TestMainFunction" />
+      <item itemvalue="Python tests.Python tests for tests.integration_tests.test_main_function.TestMainFunction.test_main_multiple_json_inputs" />
+      <item itemvalue="Python tests.Python tests for tests.unit_tests.test_round.TestRound" />
+      <item itemvalue="Python tests.Python tests for tests.integration_tests.test_gain_service.TestGainService" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for tests.integration_tests.TestGainService.TestGainService" />
-        <item itemvalue="Python tests.Python tests for tests.unit_tests.TestRound.TestRound" />
-        <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction" />
-        <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction.test_main_multiple_json_inputs" />
-        <item itemvalue="Python tests.Python tests for tests.integration_tests.TestGainService.TestGainService.test_case_9" />
+        <item itemvalue="Python tests.Python tests for tests.integration_tests.test_gain_service.TestGainService" />
+        <item itemvalue="Python tests.Python tests for tests.unit_tests.test_round.TestRound" />
+        <item itemvalue="Python tests.Python tests for tests.integration_tests.test_main_function.TestMainFunction" />
+        <item itemvalue="Python tests.Python tests for tests.integration_tests.test_main_function.TestMainFunction.test_main_multiple_json_inputs" />
+        <item itemvalue="Python tests.Python tests for tests.integration_tests.test_gain_service.TestGainService.test_case_9" />
       </list>
     </recent_temporary>
   </component>
