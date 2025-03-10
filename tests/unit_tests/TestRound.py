@@ -2,7 +2,7 @@ import unittest
 from capital_gains.service.GainsService import *
 
 
-class TestGainsService(unittest.TestCase):
+class TestRound(unittest.TestCase):
     def test_calculate_weighted_price(self):
         total_quantity = 5000
         quantity = 10000

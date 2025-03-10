@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="Agrego ajustes para imprimir en formato de Json en pantalla" />
+    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="Agrego ajustes para imprimir en formato de Json en pantalla">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capital_gains/service/GainsService.py" beforeDir="false" afterPath="$PROJECT_DIR$/capital_gains/service/GainsService.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +55,7 @@
     "Python tests.Python tests in tests.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/multiple__entrances",
+    "git-widget-placeholder": "feature/refactor",
     "last_opened_file_path": "/Users/danielalejandrolopezhernandez/Documents/Proyectos/Python/capital_gains/capital_gains"
   }
 }]]></component>
@@ -65,7 +68,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_gains_service.TestGainsService">
+  <component name="RunManager" selected="Python tests.Python tests for test_gain_service.TestGainService">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -173,9 +176,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
         <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService" />
         <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction" />
-        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
         <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction.test_main_multiple_json_inputs" />
         <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_9" />
       </list>
