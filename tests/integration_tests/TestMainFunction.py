@@ -26,13 +26,10 @@ class TestMainFunction(unittest.TestCase):
 {"operation":"sell", "unit-cost":5.00, "quantity": 5000}]''')
         mock_stdin.seek(0)
 
-        # Ejecutar main()
         main()
 
-        # Capturar salida
         output = mock_stdout.getvalue().strip()
 
-        # Construir salida esperada
         expected_output = '[{"tax": 0}, {"tax": 0}, {"tax": 0}]\n[{"tax": 0}, {"tax": 10000.0}, {"tax": 0}]'
 
         self.assertEqual(output, expected_output)
@@ -56,13 +53,10 @@ class TestMainFunction(unittest.TestCase):
     {"operation":"sell", "unit-cost":5.00, "quantity": 5000}]''')
         mock_stdin.seek(0)
 
-        # Ejecutar main()
         main()
 
-        # Capturar salida
         output = mock_stdout.getvalue().strip()
 
-        # Construir salida esperada
         expected_output = '[{"tax": 0}, {"tax": 0}, {"tax": 0}]\n[{"tax": 0}, {"tax": 10000.0}, {"tax": 0}]'
 
         self.assertEqual(output, expected_output)
