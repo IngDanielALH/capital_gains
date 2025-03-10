@@ -71,7 +71,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for TestMainFunction.TestMainFunction">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -139,21 +139,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_gain_service.TestGainService.test_case_6" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="capital_gains" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/integration_tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_gain_service.TestGainService.test_case_6&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Python tests for test_gain_service.TestGainService.test_case_9" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -169,21 +154,36 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_gains_service.TestGainsService" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="capital_gains" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_gains_service.TestGainsService&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction" />
       <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction.test_main_multiple_json_inputs" />
+      <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService" />
       <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
-      <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_6" />
       <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_9" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_gains_service.TestGainsService" />
+        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
         <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction" />
         <item itemvalue="Python tests.Python tests for TestMainFunction.TestMainFunction.test_main_multiple_json_inputs" />
-        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService" />
         <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_9" />
-        <item itemvalue="Python tests.Python tests for test_gain_service.TestGainService.test_case_6" />
       </list>
     </recent_temporary>
   </component>
