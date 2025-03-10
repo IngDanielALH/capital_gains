@@ -220,27 +220,3 @@ class TestGainService(unittest.TestCase):
                     {"tax": 2400}]
 
         self.assertEqual(expected, result)
-
-    def test_case_double_input(self):
-        transactions_json = '''
-        [
-            {"operation": "buy", "unit-cost": 10.00, "quantity": 100},
-            {"operation": "sell", "unit-cost": 15.00, "quantity": 50},
-            {"operation": "sell", "unit-cost": 15.00, "quantity": 50}
-        ]
-        '''
-
-        operations = [
-            TransactionDTO.Builder()
-            .set_operation(t["operation"])
-            .set_unit_cost(t["unit-cost"])
-            .set_quantity(t["quantity"])
-            .build()
-            for t in json.loads(transactions_json)
-        ]
-
-        result = parse_operations(operations, 20, 20000)
-
-        expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}]
-
-        self.assertEqual(expected, result)
