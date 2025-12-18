@@ -22,7 +22,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}]
 
@@ -44,7 +44,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 10000.00}, {"tax": 0.00}]
 
@@ -66,7 +66,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 1000.00}]
 
@@ -88,7 +88,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}]
 
@@ -111,7 +111,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}, {"tax": 10000.00}]
 
@@ -135,7 +135,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}, {"tax": 3000.00}]
 
@@ -163,7 +163,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}, {"tax": 3000.00},
                     {"tax": 0.00}, {"tax": 0.00}, {"tax": 3700.00}, {"tax": 0.00}]
@@ -187,7 +187,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 80000.00}, {"tax": 0.00}, {"tax": 60000.00}]
 
@@ -214,7 +214,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0}, {"tax": 0}, {"tax": 0}, {"tax": 0}, {"tax": 0}, {"tax": 0}, {"tax": 1000},
                     {"tax": 2400}]
@@ -239,7 +239,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 2000.00}]
 
@@ -267,7 +267,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}]
 
@@ -294,7 +294,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 0.00}, {"tax": 6000.00}]
 
@@ -325,7 +325,7 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        result = parse_operations(operations, 20, 20000)
+        result = list(parse_operations(operations, 20, 20000))
 
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 11964.00}]
 

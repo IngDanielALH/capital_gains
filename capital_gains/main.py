@@ -36,7 +36,7 @@ def main():
                 print("Error al parsear información de entrada")
 
         for result in results:
-            print(json.dumps(result))
+            print(json.dumps(list(result)))
 
 
 if __name__ == "__main__":

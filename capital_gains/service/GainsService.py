@@ -6,7 +6,6 @@ TWO_PLACES = Decimal("0.00")
 
 
 def calculate_weighted_price(total_quantity, quantity, weighted_average_price, unit_cost):
-
     total_value = (total_quantity * weighted_average_price) + (quantity * unit_cost)
     new_total_quantity = total_quantity + quantity
 
@@ -14,12 +13,10 @@ def calculate_weighted_price(total_quantity, quantity, weighted_average_price, u
         return Decimal("0.00")
 
     weighted_avg = total_value / new_total_quantity
-
     return weighted_avg.quantize(TWO_PLACES, rounding=ROUND_HALF_UP)
 
 
 def parse_operations(operations, tax_percentage, limit_without_tax):
-
     weighted_average_price = Decimal("0.00")
     total_quantity = Decimal("0")
     total_lose = Decimal("0.00")
@@ -28,7 +25,6 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
     limit_tax = Decimal(str(limit_without_tax))
 
     is_first_buy = True
-    result = []
 
     for operation in operations:
         current_operation = operation.get_operation()
@@ -46,7 +42,7 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
                 )
                 total_quantity += quantity
 
-            result.append(TaxDTO(0.0))
+            yield TaxDTO(0.0).to_dict()
             continue
 
         sell_total_amount = unit_cost * quantity
@@ -79,7 +75,5 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
             if benefit < 0:
                 total_lose += benefit
 
-        result.append(TaxDTO(float(tax_amount)))
+        yield TaxDTO(float(tax_amount)).to_dict()
         total_quantity -= quantity
-
-    return [tax.to_dict() for tax in result]
