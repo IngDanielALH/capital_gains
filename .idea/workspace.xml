@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="elimino comentarios">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/capital_gains.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/capital_gains.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/integration_tests/TestGainService.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/test_gain_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/integration_tests/TestMainFunction.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/test_main_function.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit_tests/TestRound.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit_tests/test_round.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capital_gains/service/GainsService.py" beforeDir="false" afterPath="$PROJECT_DIR$/capital_gains/service/GainsService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/integration_tests/test_main_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/test_main_function.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
     "Python tests.Python tests in tests.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/readme",
+    "git-widget-placeholder": "feature/second__attemp",
     "last_opened_file_path": "/Users/danielalejandrolopezhernandez/Documents/Proyectos/Python/capital_gains/capital_gains"
   }
 }]]></component>
@@ -71,7 +71,7 @@
       <recent name="$PROJECT_DIR$/capital_gains" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python tests.Python tests in tests">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="capital_gains" />
       <option name="ENV_FILES" value="" />
@@ -106,21 +106,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;tests.integration_tests.test_gain_service.TestGainService&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.integration_tests.test_gain_service.TestGainService.test_case_9" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="capital_gains" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/integration_tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.integration_tests.test_gain_service.TestGainService.test_case_9&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -169,9 +154,24 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="capital_gains" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python tests.Python tests for tests.integration_tests.test_gain_service.TestGainService.test_case_9" />
+      <item itemvalue="Python tests.Python tests in tests" />
       <item itemvalue="Python tests.Python tests for tests.integration_tests.test_main_function.TestMainFunction" />
       <item itemvalue="Python tests.Python tests for tests.integration_tests.test_main_function.TestMainFunction.test_main_multiple_json_inputs" />
       <item itemvalue="Python tests.Python tests for tests.unit_tests.test_round.TestRound" />
@@ -179,11 +179,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests in tests" />
         <item itemvalue="Python tests.Python tests for tests.integration_tests.test_gain_service.TestGainService" />
         <item itemvalue="Python tests.Python tests for tests.unit_tests.test_round.TestRound" />
         <item itemvalue="Python tests.Python tests for tests.integration_tests.test_main_function.TestMainFunction" />
         <item itemvalue="Python tests.Python tests for tests.integration_tests.test_main_function.TestMainFunction.test_main_multiple_json_inputs" />
-        <item itemvalue="Python tests.Python tests for tests.integration_tests.test_gain_service.TestGainService.test_case_9" />
       </list>
     </recent_temporary>
   </component>
