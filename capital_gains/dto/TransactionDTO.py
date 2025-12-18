@@ -1,4 +1,5 @@
 class TransactionDTO:
+    __slots__ = ['_operation', '_unit_cost', '_quantity']
 
     def __init__(self, operation: str, unit_cost: float, quantity: int):
         self._operation = operation
