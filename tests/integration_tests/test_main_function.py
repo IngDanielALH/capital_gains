@@ -30,7 +30,7 @@ class TestMainFunction(unittest.TestCase):
 
         output = mock_stdout.getvalue().strip()
 
-        expected_output = '[{"tax": 0}, {"tax": 0}, {"tax": 0}]\n[{"tax": 0}, {"tax": 10000.0}, {"tax": 0}]'
+        expected_output = '[{"tax": 0.0}, {"tax": 0.0}, {"tax": 0.0}]\n[{"tax": 0.0}, {"tax": 10000.0}, {"tax": 0.0}]'
 
         self.assertEqual(output, expected_output)
 
@@ -57,6 +57,6 @@ class TestMainFunction(unittest.TestCase):
 
         output = mock_stdout.getvalue().strip()
 
-        expected_output = '[{"tax": 0}, {"tax": 0}, {"tax": 0}]\n[{"tax": 0}, {"tax": 10000.0}, {"tax": 0}]'
+        expected_output = '[{"tax": 0.0}, {"tax": 0.0}, {"tax": 0.0}]\n[{"tax": 0.0}, {"tax": 10000.0}, {"tax": 0.0}]'
 
         self.assertEqual(output, expected_output)
