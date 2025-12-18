@@ -17,13 +17,14 @@ class TestMainFunction(unittest.TestCase):
         mock_instance.config = mock_config
         mock_config_loader.return_value = mock_instance
 
-        mock_stdin.write('''[{"operation":"buy", "unit-cost":10.00, "quantity": 100},
-{"operation":"sell", "unit-cost":15.00, "quantity": 50},
-{"operation":"sell", "unit-cost":15.00, "quantity": 50}]
+        input_str = (
+            '[{"operation":"buy", "unit-cost":10.00, "quantity": 100}, {"operation":"sell", "unit-cost":15.00, '
+            '"quantity": 50}, {"operation":"sell", "unit-cost":15.00, "quantity": 50}]\n'
+            '[{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, '
+            '"quantity": 5000}, {"operation":"sell", "unit-cost":5.00, "quantity": 5000}]'
+        )
 
-[{"operation":"buy", "unit-cost":10.00, "quantity": 10000},
-{"operation":"sell", "unit-cost":20.00, "quantity": 5000},
-{"operation":"sell", "unit-cost":5.00, "quantity": 5000}]''')
+        mock_stdin.write(input_str)
         mock_stdin.seek(0)
 
         main()
@@ -45,12 +46,14 @@ class TestMainFunction(unittest.TestCase):
         mock_instance.config = mock_config
         mock_config_loader.return_value = mock_instance
 
-        mock_stdin.write('''[{"operation":"buy", "unit-cost":10.00, "quantity": 100},
-    {"operation":"sell", "unit-cost":15.00, "quantity": 50},
-    {"operation":"sell", "unit-cost":15.00, "quantity": 50}]
-    [{"operation":"buy", "unit-cost":10.00, "quantity": 10000},
-    {"operation":"sell", "unit-cost":20.00, "quantity": 5000},
-    {"operation":"sell", "unit-cost":5.00, "quantity": 5000}]''')
+        input_str = (
+            '[{"operation":"buy", "unit-cost":10.00, "quantity": 100}, {"operation":"sell", "unit-cost":15.00, '
+            '"quantity": 50}, {"operation":"sell", "unit-cost":15.00, "quantity": 50}]\n'
+            '[{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, '
+            '"quantity": 5000}, {"operation":"sell", "unit-cost":5.00, "quantity": 5000}]'
+        )
+
+        mock_stdin.write(input_str)
         mock_stdin.seek(0)
 
         main()
