@@ -24,4 +24,4 @@ htmlcov/
 # Distribución / Builds
 dist/
 build/
-*.egg-info/
+*.egg-info/!/large_input.txt
