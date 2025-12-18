@@ -13,8 +13,10 @@ A robust **Command Line Interface (CLI)** application designed to calculate taxe
 - [Features](#-features)
 - [Project Structure](#-project-structure)
 - [Installation & Setup](#-installation--setup)
+- [Automation (Makefile)](#-automation-makefile)
 - [Configuration](#-configuration)
 - [Usage](#-usage)
+- [Running with Docker](#-running-with-docker)
 - [Testing](#-testing)
 - [Technical Decisions](#-technical-decisions)
 
@@ -60,6 +62,19 @@ capital_gains/
    pip install -r requirements.txt
    ```
 
+## ⚡ Automation (Makefile)
+
+To simplify common development tasks, a `Makefile` is included. You can use the following commands instead of typing long instructions:
+
+| Command              | Description                                      |
+|:---------------------|:-------------------------------------------------|
+| `make install`       | Installs project dependencies (`requirements.txt`). |
+| `make test`          | Runs the full test suite with verbose output.    |
+| `make run`           | Runs the application in interactive mode.        |
+| `make docker-build`  | Builds the Docker image.                         |
+| `make docker-run`    | Runs the application inside a Docker container.  |
+| `make clean`         | Removes cache files, build artifacts, and logs.  |
+
 ## 📌 Configuration
 
 The application rules are decoupled from the source code using config.yml. This allows for easy adjustments to tax laws without redeploying code.
@@ -98,6 +113,13 @@ Option 2: Interactive Mode Run the command and paste JSON lines into the termina
 ```bash
    python -m capital_gains.main
    ```
+### 🐳 Running with Docker
+
+Build the image:
+```bash
+docker build -t capital-gains .
+   ```
+
 Expected Output
 ```json
 [{"tax": 0.00}, {"tax": 10000.00}]
