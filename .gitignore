@@ -1,4 +1,27 @@
-# Archivos de configuración de IntelliJ IDEA / PyCharm
+# --- Tu configuración actual ---
 .idea/
 *.iml
 *.xml
+
+# --- AGREGAR ESTO ---
+
+# Archivos compilados de Python (no se deben subir)
+__pycache__/
+*.py[cod]
+
+# Entornos virtuales (¡Muy importante!)
+.venv/
+venv/
+env/
+
+# Archivos del sistema operativo (macOS)
+.DS_Store
+
+# Archivos de cobertura de tests (si usas pytest-cov más adelante)
+.coverage
+htmlcov/
+
+# Distribución / Builds
+dist/
+build/
+*.egg-info/
