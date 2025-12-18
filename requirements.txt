@@ -1,0 +1,5 @@
+# Dependencias principales
+PyYAML>=6.0
+
+# Dependencias de desarrollo y testing
+pytest>=8.0
