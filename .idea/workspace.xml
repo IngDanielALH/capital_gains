@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="elimino comentarios">
-      <change beforePath="$PROJECT_DIR$/.idea/capital_gains.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/capital_gains.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capital_gains/service/GainsService.py" beforeDir="false" afterPath="$PROJECT_DIR$/capital_gains/service/GainsService.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/integration_tests/test_main_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration_tests/test_main_function.py" afterDir="false" />
-    </list>
+    <list default="true" id="5269114b-e5e1-44ec-bee2-fe7d797668e7" name="Changes" comment="Se agrega python interpeter" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -315,7 +309,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741639058398</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Modificación para trabar con decimal y ser más precisos">
+      <option name="closed" value="true" />
+      <created>1766082088467</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1766082088467</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Se agrega python interpeter">
+      <option name="closed" value="true" />
+      <created>1766082111564</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1766082111564</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Se agrega python interpeter">
+      <option name="closed" value="true" />
+      <created>1766082126333</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1766082126333</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -342,7 +360,9 @@
     <MESSAGE value="Agrego ajustes para imprimir en formato de Json en pantalla" />
     <MESSAGE value="Refactor de lógica de manejo de operaciones, cambio de nombres de clases para cumplir con el estándar" />
     <MESSAGE value="elimino comentarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="elimino comentarios" />
+    <MESSAGE value="Modificación para trabar con decimal y ser más precisos" />
+    <MESSAGE value="Se agrega python interpeter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se agrega python interpeter" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
