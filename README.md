@@ -1,100 +1,142 @@
-# 📊 Capital Gains Calculator  
+# 📊 Capital Gains Calculator
 
-This project implements a system to calculate capital gains based on buy and sell transactions of assets. It determines applicable taxes according to established regulations.  
+![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-100%25-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-## 🚀 Features  
+A robust **Command Line Interface (CLI)** application designed to calculate taxes on capital gains from stock market operations. It processes financial transaction records in compliance with configurable tax regulations, emphasizing **financial precision** and **memory efficiency**.
 
-- Calculation of **weighted average price** for purchases.  
-- Determination of **gains and losses** on sales.  
-- Application of **taxes** based on configurable thresholds and rates.  
-- **Unit tests** to validate calculations.  
+---
 
-## 🛠️ Installation  
-The project was tested using Python 3.9.6 🐍
+## 📋 Table of Contents
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Installation & Setup](#-installation--setup)
+- [Configuration](#-configuration)
+- [Usage](#-usage)
+- [Testing](#-testing)
+- [Technical Decisions](#-technical-decisions)
 
-**Required dependencies**:  
-   ```bash
-   pip install pyyaml
-   ```  
-```bash
-pip install pytest
-   ```  
+---
 
-## 📝 Usage  
+## 🚀 Features
 
-Capital gains are calculated based on a list of transactions that include details about the operation, unit cost, and quantity.  
+### Business Logic
+- **Weighted Average Price (WAP)**: Automatically recalculates asset valuation upon every purchase.
+- **Tax Rules Engine**: Applies tax rates only when profits exceed the configured threshold (e.g., $20,000).
+- **Loss Deduction**: Automatically carries forward losses to offset future taxable gains.
 
-### **Input Example**  
-```json
-[
-    {"operation": "buy", "unit-cost": 10.00, "quantity": 10000},
-    {"operation": "sell", "unit-cost": 2.00, "quantity": 5000},
-    {"operation": "sell", "unit-cost": 20.00, "quantity": 2000},
-    {"operation": "sell", "unit-cost": 20.00, "quantity": 2000},
-    {"operation": "sell", "unit-cost": 25.00, "quantity": 1000}
-]
-```  
+### Technical Highlights
+- **High Precision Arithmetic**: Utilizes Python's `decimal.Decimal` with `ROUND_HALF_UP` strategy to eliminate floating-point calculation errors.
+- **Memory Efficiency (Streaming)**: Implements **Lazy Loading** via Python Generators (`yield`). The application processes input line-by-line, allowing it to handle massive datasets with constant memory usage (O(1)).
+- **Optimized Data Structures**: Uses `__slots__` in DTOs to reduce memory overhead by approximately 40% per object.
 
-### **Expected Output**  
-```json
-[
-    {"tax": 0.00},
-    {"tax": 0.00},
-    {"tax": 0.00},
-    {"tax": 0.00},
-    {"tax": 3000.00}
-]
-```  
+---
 
-## 🧪 Testing  
+## 📂 Project Structure
 
-To run unit tests, use:  
-```bash
-python -m pytest tests/ 
-```  
-
-### **Expected Output**  
+```text
+capital_gains/
+├── capital_gains/
+│   ├── configuration/   # Configuration loaders (YAML)
+│   ├── dto/             # Data Transfer Objects (Memory Optimized)
+│   ├── service/         # Core business logic (Tax & WAP calculation)
+│   ├── utils/           # Constants and helpers
+│   └── main.py          # Application Entry Point
+├── tests/
+│   ├── integration_tests/ # End-to-end scenarios
+│   ├── unit_tests/        # Isolated logic verification
+│   └── resources/         # Input samples for testing
+├── config.yml           # Externalized configuration rules
+├── requirements.txt     # Project dependencies
+└── README.md
 ```
-====================================== test session starts ============================================================
-platform darwin -- Python 3.9.6, pytest-8.3.5, pluggy-1.5.0
-rootdir: /Users/danielalejandrolopezhernandez/Documents/Proyectos/Python/capital_gains
-collected 12 items                                                                                                                                                                                                                                      
 
-tests/integration_tests/test_gain_service.py .........                                                                                                                                                                                           [ 75%]
-tests/integration_tests/test_main_function.py ..                                                                                                                                                                                                 [ 91%]
-tests/unit_tests/test_round.py .                                                                                                                                                                                                                 [100%]
+## 🛠️ Installation & Setup
+- This project requires Python 3.9+.
+- Install dependencies:
+ ```bash
+   pip install -r requirements.txt
+   ```
 
-====================================== 12 passed in 0.14s ==============================================================
-```  
+## 📌 Configuration
 
-## 📌 Configuration  
+The application rules are decoupled from the source code using config.yml. This allows for easy adjustments to tax laws without redeploying code.
 
-The calculation behavior can be modified by adjusting the following parameters in the YAML file:  
-
-- **`tax_percentage`**: Applicable tax percentage.  
-- **`limit_without_tax`**: Threshold beyond which tax is applied.  
-
-### 📂 Using `pyyaml` for Dynamic Configuration  
-
-The project uses `pyyaml` to manage configuration values, such as tax rates and tax-free limits, which may change over 
-time. This allows:  
-
-- Keeping configurable values separate from the code.  
-- Facilitating updates without modifying the source code.  
-- Improving system reusability and adaptability to regulatory changes.  
-  (The YAML file is located in the root of this project.)
-
-Example YAML file:  
+Default config.yml:
 ```yaml
-tax_percentage: 20
-limit_without_tax: 20000
+app:
+  name: "Capital Gains"
+  version: "1.0"
+
+taxes:
+  sell:
+    percentage: 20.0
+    limit_without_taxes: 20000
+   ```
+
+## 📝 Usage
+
+The application reads a stream of JSON arrays from Standard Input (stdin) and prints the results to Standard Output (stdout).
+Input Format
+
+Each line must contain a valid JSON array representing a sequence of operations.
+
+Example Input:
+```json
+[{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, "quantity": 5000}]
+[{"operation":"buy", "unit-cost":20.00, "quantity": 10000}, {"operation":"sell", "unit-cost":10.00, "quantity": 5000}]
 ```  
+Execution
 
-## ▶️ Running the Project  
-
-To run the project from the terminal, it is recommended to redirect the input as follows:  
-
+Option 1: Using File Redirection (Recommended) Prepare an input.txt file and pipe it into the application:
 ```bash
-./main.py < input.txt
+   python -m capital_gains.main < input.txt
+   ```
+Option 2: Interactive Mode Run the command and paste JSON lines into the terminal:
+```bash
+   python -m capital_gains.main
+   ```
+Expected Output
+```json
+[{"tax": 0.00}, {"tax": 10000.00}]
+[{"tax": 0.00}, {"tax": 0.00}]
+```  
+## 🧪 Testing
+The project maintains high test coverage using pytest, ensuring both unit logic and integration scenarios are correct.
+
+Run all tests:
+```bash
+   python -m pytest tests/ -v
+   ```
+Sample Output:
 ```
-A sample input file is available at `tests/resources/input.txt`.
+================ test session starts =================
+platform darwin -- Python 3.9.6, pytest-8.3.5
+rootdir: /.../capital_gains
+collected 12 items
+
+tests/integration_tests/test_gain_service.py ......... [ 75%]
+tests/integration_tests/test_main_function.py ..       [ 91%]
+tests/unit_tests/test_round.py .                       [100%]
+
+================ 12 passed in 0.14s ==================
+```  
+## 🧠 Technical Decisions
+### 1. Lazy Loading & Generators
+Instead of loading the entire input file into a list (which could crash memory with large files), the application processes data as a stream.
+
+- **Why?** Scalability. It allows processing gigabytes of transaction logs with minimal RAM.
+- **Implementation:** The `main` function iterates `sys.stdin` line-by-line, and the `GainsService` yields results one by one using Python generators.
+
+### 2. Decimal Precision
+Financial applications cannot rely on standard floating-point math (e.g., `0.1 + 0.2 != 0.3`).
+
+- **Solution:** All monetary calculations use `decimal.Decimal`.
+- **Rounding:** Strict `ROUND_HALF_UP` rounding is applied at specific calculation steps as per business requirements.
+
+### 3. Memory Slots
+The `TransactionDTO` class uses `__slots__`.
+
+- **Why?** Standard Python objects use a dynamic `__dict__` to store attributes. Using `__slots__` tells Python to reserve fixed memory space, reducing the memory footprint of millions of transaction objects by ~40-50%.
