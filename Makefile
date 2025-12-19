@@ -37,6 +37,8 @@ docker-build:
 docker-run:
 	docker run -i --rm capital-gains
 
+docker: docker-build docker-run
+
 sonar:
 	$(PYTHON) -m pytest --cov=capital_gains --cov-report=xml
 	sed -i '' "s|$$(pwd)|/usr/src|g" coverage.xml
