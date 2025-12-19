@@ -1,1 +1,1 @@
-from .ConfigLoader import ConfigLoader
+from .config_loader import ConfigLoader

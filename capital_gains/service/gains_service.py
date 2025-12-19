@@ -1,5 +1,5 @@
 from decimal import Decimal, ROUND_HALF_UP
-from capital_gains.service.PortfolioState import PortfolioState, STRATEGIES
+from capital_gains.service.portfolio_state import PortfolioState, STRATEGIES
 
 
 def parse_operations(operations, tax_percentage, limit_without_tax):

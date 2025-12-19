@@ -10,4 +10,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT ["python", "-m", "capital_gains.main"]
+ENTRYPOINT ["python", "-m", "capital_gains"]

@@ -1,7 +1,7 @@
 import sys
 import json
 from capital_gains.configuration import ConfigLoader
-from capital_gains.dto.TransactionDTO import TransactionDTO
+from capital_gains.dto.transaction_dto import TransactionDTO
 from capital_gains.service import parse_operations
 
 

@@ -1,1 +1,1 @@
-from .GainsService import parse_operations
+from .gains_service import parse_operations

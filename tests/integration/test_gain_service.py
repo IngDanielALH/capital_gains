@@ -1,8 +1,8 @@
 import json
 import unittest
 
-from capital_gains.dto.TransactionDTO import TransactionDTO
-from capital_gains.service.GainsService import parse_operations
+from capital_gains.dto.transaction_dto import TransactionDTO
+from capital_gains.service.gains_service import parse_operations
 
 
 class TestGainService(unittest.TestCase):

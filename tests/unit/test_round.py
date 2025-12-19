@@ -1,6 +1,6 @@
 import unittest
 from decimal import Decimal
-from capital_gains.utils.MathUtils import calculate_weighted_price
+from capital_gains.utils.math_utils import calculate_weighted_price
 
 
 class TestRound(unittest.TestCase):

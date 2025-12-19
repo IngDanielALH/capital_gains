@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from decimal import Decimal, ROUND_HALF_UP
-from capital_gains.dto.TaxDTO import TaxDTO
-from capital_gains.utils.Constants import Constants
-from capital_gains.utils.MathUtils import calculate_weighted_price
+from capital_gains.dto.tax_dto import TaxDTO
+from capital_gains.utils.constants import Constants
+from capital_gains.utils.math_utils import calculate_weighted_price
 
 # Asumimos que esta función existe en tu contexto
 # from ... import calculate_weighted_price

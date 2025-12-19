@@ -1,14 +1,14 @@
 import unittest
 from io import StringIO
 from unittest.mock import patch, MagicMock
-from capital_gains.main import main
+from capital_gains.__main__ import main
 
 
 class TestMainFunction(unittest.TestCase):
 
     @patch('sys.stdin', new_callable=StringIO)
     @patch('sys.stdout', new_callable=StringIO)
-    @patch('capital_gains.main.ConfigLoader')
+    @patch('capital_gains.__main__.ConfigLoader')
     def test_main_multiple_json_inputs(self, mock_config_loader, mock_stdout, mock_stdin):
         mock_config = {
             'taxes': {'sell': {'percentage': 20, 'limit_without_taxes': 20000}}
@@ -37,7 +37,7 @@ class TestMainFunction(unittest.TestCase):
 
     @patch('sys.stdin', new_callable=StringIO)
     @patch('sys.stdout', new_callable=StringIO)
-    @patch('capital_gains.main.ConfigLoader')
+    @patch('capital_gains.__main__.ConfigLoader')
     def test_main_multiple_json_inputs_no_space(self, mock_config_loader, mock_stdout, mock_stdin):
         mock_config = {
             'taxes': {'sell': {'percentage': 20, 'limit_without_taxes': 20000}}

@@ -1,4 +1,4 @@
-# capital_gains/utils/MathUtils.py
+# capital_gains/utils/math_utils.py
 from decimal import Decimal, ROUND_HALF_UP
 
 TWO_PLACES = Decimal("0.00")

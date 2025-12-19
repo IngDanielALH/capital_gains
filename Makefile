@@ -14,7 +14,7 @@ test:
 
 # Ejecuta la aplicación en modo interactivo
 run:
-	$(PYTHON) -m capital_gains.main
+	$(PYTHON) -m capital_gains
 
 # Limpia archivos temporales y caché
 clean:
