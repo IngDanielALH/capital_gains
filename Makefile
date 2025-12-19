@@ -1,44 +1,49 @@
-.PHONY: install test run clean docker-build docker-run sonar
+.PHONY: setup test run clean docker-build docker-run sonar
 
-# Variables
-PYTHON = python
-IMAGE_NAME = capital-gains
+# Configuración del entorno
+VENV = .venv
+PYTHON = $(VENV)/bin/python
+PIP = $(VENV)/bin/pip
 
-# Instala las dependencias del proyecto
-install:
-	pip install -r requirements.txt
+# --- COMANDOS PRINCIPALES ---
 
-# Ejecuta todos los tests con detalle
+# 1. SETUP: Crea el entorno virtual E instala dependencias automáticamente
+setup:
+	python3 -m venv $(VENV)
+	$(PIP) install -r requirements.txt
+	@echo "✅ Entorno configurado. Usa 'make test' o 'make run' directamente."
+
+# 2. TEST: Usa explícitamente el Python del venv (no requiere activar)
 test:
 	$(PYTHON) -m pytest tests/ -v
 
-# Ejecuta la aplicación en modo interactivo
+# 3. RUN: Ejecuta la app usando el venv
 run:
 	$(PYTHON) -m capital_gains
 
-# Limpia archivos temporales y caché
+# --- UTILIDADES ---
+
 clean:
-	rm -rf .pytest_cache
+	rm -rf __pycache__
 	rm -rf **/__pycache__
-	rm -rf capital_gains/__pycache__
-	rm -rf tests/__pycache__
+	rm -rf .pytest_cache
 	rm -rf .coverage
+	rm -rf coverage.xml
+	rm -rf $(VENV)
 
-# Construye la imagen de Docker
 docker-build:
-	docker build -t $(IMAGE_NAME) .
+	docker build -t capital-gains .
 
-# Ejecuta la aplicación dentro de Docker
 docker-run:
-	@echo "Paste your JSON lines below (Ctrl+D to finish):"
-	docker run -i --rm $(IMAGE_NAME)
+	docker run -i --rm capital-gains
 
 sonar:
-	python -m pytest --cov=capital_gains --cov-report=xml
-	sed -i '' "s|$(PWD)|/usr/src|g" coverage.xml
+	$(PYTHON) -m pytest --cov=capital_gains --cov-report=xml
+	sed -i '' "s|$$(pwd)|/usr/src|g" coverage.xml
 	docker run --rm \
 		-v "$$(pwd):/usr/src" \
 		sonarsource/sonar-scanner-cli \
-		-Dsonar.projectKey=Capital-Gains \
+		-Dsonar.projectKey=capital-gains \
+		-Dsonar.sources=. \
 		-Dsonar.host.url=http://host.docker.internal:9000 \
 		-Dsonar.token=$(token)
