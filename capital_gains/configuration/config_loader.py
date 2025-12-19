@@ -10,7 +10,7 @@ class ConfigLoader:
     def load_config(self):
         try:
             with open(self.file_path, "r") as file:
-                return yaml.safe_load(file)  # Carga segura del YAML
+                return yaml.safe_load(file)
         except FileNotFoundError:
             print("Error: No se encontró el archivo de configuración.")
             return None

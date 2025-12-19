@@ -1,4 +1,4 @@
-.PHONY: install test run clean docker-build docker-run
+.PHONY: install test run clean docker-build docker-run sonar
 
 # Variables
 PYTHON = python
@@ -32,3 +32,13 @@ docker-build:
 docker-run:
 	@echo "Paste your JSON lines below (Ctrl+D to finish):"
 	docker run -i --rm $(IMAGE_NAME)
+
+sonar:
+	python -m pytest --cov=capital_gains --cov-report=xml
+	sed -i '' "s|$(PWD)|/usr/src|g" coverage.xml
+	docker run --rm \
+		-v "$$(pwd):/usr/src" \
+		sonarsource/sonar-scanner-cli \
+		-Dsonar.projectKey=Capital-Gains \
+		-Dsonar.host.url=http://host.docker.internal:9000 \
+		-Dsonar.token=$(token)

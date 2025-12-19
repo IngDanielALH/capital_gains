@@ -1,4 +1,4 @@
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import Decimal
 from capital_gains.service.portfolio_state import PortfolioState, STRATEGIES
 
 
