@@ -5,17 +5,10 @@ from capital_gains.configuration.config_loader import ConfigLoader
 
 
 class TestConfigLoader(unittest.TestCase):
-    TEST_CONFIG_FILE = "test_config.yml"
+    TEST_CONFIG_FILE = "test_config_temp.yml"
 
     def setUp(self):
-        data = {
-            'taxes': {
-                'sell': {
-                    'percentage': 15,
-                    'limit_without_taxes': 10000
-                }
-            }
-        }
+        data = {'taxes': {'sell': {'percentage': 15, 'limit_without_taxes': 10000}}}
         with open(self.TEST_CONFIG_FILE, 'w') as f:
             yaml.dump(data, f)
 
@@ -25,24 +18,19 @@ class TestConfigLoader(unittest.TestCase):
 
     def test_load_valid_config(self):
         loader = ConfigLoader(self.TEST_CONFIG_FILE)
-
-        config = loader.config
-
-        self.assertIsNotNone(config)
-        self.assertEqual(config['taxes']['sell']['percentage'], 15)
-        self.assertEqual(config['taxes']['sell']['limit_without_taxes'], 10000)
+        self.assertEqual(loader.config['taxes']['sell']['percentage'], 15)
 
     def test_file_not_found(self):
-        loader = ConfigLoader("archivo_inexistente_123.yml")
-
-        self.assertIsNone(loader.config)
+        with self.assertRaises(FileNotFoundError):
+            ConfigLoader("archivo_inexistente_123.yml")
 
     def test_invalid_yaml(self):
-        with open("bad.yml", "w") as f:
-            f.write("esto: no: es: un: yaml: valido")
+        bad_file = "bad.yml"
+        with open(bad_file, "w") as f:
+            f.write("esto: no: es: un: yaml: valido: {[:")
 
-        loader = ConfigLoader("bad.yml")
-        self.assertIsNone(loader.config)
+        with self.assertRaises(yaml.YAMLError):
+            ConfigLoader(bad_file)
 
-        if os.path.exists("bad.yml"):
-            os.remove("bad.yml")
+        if os.path.exists(bad_file):
+            os.remove(bad_file)

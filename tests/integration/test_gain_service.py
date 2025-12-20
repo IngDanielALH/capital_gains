@@ -309,3 +309,19 @@ class TestGainService(unittest.TestCase):
         expected = [{"tax": 0.00}, {"tax": 0.00}, {"tax": 11964.00}]
 
         self.assertEqual(expected, result)
+
+    def test_case_inventory_validation_error(self):
+        transactions_json = '''
+        [{"operation": "buy", "unit-cost": 10.00, "quantity": 100},
+        {"operation": "sell", "unit-cost": 20.00, "quantity": 150}]
+        '''
+
+        operations = [
+            TransactionDTO(t["operation"], t["unit-cost"], t["quantity"])
+            for t in json.loads(transactions_json)
+        ]
+
+        with self.assertRaises(ValueError) as context:
+            list(parse_operations(operations, 20, 20000))
+
+        self.assertIn("Insufficient stock", str(context.exception))

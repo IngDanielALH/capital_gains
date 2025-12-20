@@ -10,7 +10,7 @@ class TaxDTO:
         self._tax = tax
 
     def to_dict(self):
-        return {"tax": self._tax}
+        return {"tax": float(self._tax)}
 
     def __repr__(self):
         return f"TaxDTO(tax={self._tax})"

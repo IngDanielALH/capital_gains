@@ -41,7 +41,7 @@ docker: docker-build docker-run
 
 sonar:
 	$(PYTHON) -m pytest --cov=capital_gains --cov-report=xml
-	sed -i '' "s|$$(pwd)|/usr/src|g" coverage.xml
+	perl -i -pe "s|$(PWD)|/usr/src|g" coverage.xml
 	docker run --rm \
 		-v "$$(pwd):/usr/src" \
 		sonarsource/sonar-scanner-cli \

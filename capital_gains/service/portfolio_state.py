@@ -123,6 +123,11 @@ class SellStrategy(OperationStrategy):
         unit_cost = Decimal(str(operation.get_unit_cost()))
         quantity = Decimal(str(operation.get_quantity()))
 
+        if state.total_quantity < quantity:
+            raise ValueError(
+                f"Insufficient stock. Owned: {state.total_quantity}, Selling: {quantity}"
+            )
+
         tax_rate, limit_tax = tax_config
 
         sell_total_amount = unit_cost * quantity
