@@ -325,3 +325,38 @@ class TestGainService(unittest.TestCase):
             list(parse_operations(operations, 20, 20000))
 
         self.assertIn("Insufficient stock", str(context.exception))
+
+    def test_case_independent_simulations(self):
+        """
+        Case #1 + Case #2:
+        """
+
+        json_line_1 = '''
+        [{"operation":"buy", "unit-cost":10.00, "quantity": 100},
+         {"operation":"sell", "unit-cost":15.00, "quantity": 50},
+         {"operation":"sell", "unit-cost":15.00, "quantity": 50}]
+        '''
+
+        json_line_2 = '''
+        [{"operation":"buy", "unit-cost":10.00, "quantity": 10000},
+         {"operation":"sell", "unit-cost":20.00, "quantity": 5000},
+         {"operation":"sell", "unit-cost":5.00, "quantity": 5000}]
+        '''
+
+        operations_1 = [
+            TransactionDTO(t["operation"], t["unit-cost"], t["quantity"])
+            for t in json.loads(json_line_1)
+        ]
+        result_1 = list(parse_operations(operations_1, 20, 20000))
+        expected_1 = [{"tax": 0.0}, {"tax": 0.0}, {"tax": 0.0}]
+
+        operations_2 = [
+            TransactionDTO(t["operation"], t["unit-cost"], t["quantity"])
+            for t in json.loads(json_line_2)
+        ]
+        result_2 = list(parse_operations(operations_2, 20, 20000))
+
+        expected_2 = [{"tax": 0.0}, {"tax": 10000.0}, {"tax": 0.0}]
+
+        self.assertEqual(expected_1, result_1)
+        self.assertEqual(expected_2, result_2)
