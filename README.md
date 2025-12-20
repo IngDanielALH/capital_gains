@@ -84,17 +84,17 @@ Or simply
 
 ## ⚡ Automation (Makefile)
 
-To simplify common development tasks, a `Makefile` is included. You can use the following commands instead of typing long instructions:
+To simplify common development tasks, a `Makefile` is included. You can use the following commands to manage the project lifecycle:
 
-| Command                   | Description                                                |
-|:--------------------------|:-----------------------------------------------------------|
-| `make install`            | Installs project dependencies (`requirements.txt`).        |
-| `make test`               | Runs the full test suite with verbose output.              |
-| `make run`                | Runs the application in interactive mode.                  |
-| `make docker-build`       | Builds the Docker image.                                   |
-| `make docker-run`         | Runs the application inside a Docker container.            |
-| `make docker`             | Builds and Runs the application inside a Docker container. |
-| `make clean`              | Removes cache files, build artifacts, and logs.            |
+| Command             | Description                                                                 |
+|:--------------------|:----------------------------------------------------------------------------|
+| `make setup`        | Creates a virtual environment (`.venv`) and installs dependencies.          |
+| `make test`         | Runs the full test suite using `pytest`.                                    |
+| `make run`          | Runs the application locally in interactive mode.                           |
+| `make clean`        | Removes cache files, coverage reports, and deletes the `.venv` folder.      |
+| `make docker`       | **(Recommended)** Builds the image and runs the application in one step.    |
+| `make docker-build` | Builds the Docker image tagged as `capital-gains`.                          |
+| `make docker-run`   | Runs the Docker container (requires the image to be built).                 |
 
 ## 📌 Configuration
 
