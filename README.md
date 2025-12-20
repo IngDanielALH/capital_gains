@@ -36,6 +36,9 @@ A robust **Command Line Interface (CLI)** application designed to calculate taxe
 - **Memory Efficiency (Streaming)**: Implements **Lazy Loading** via Python Generators (`yield`). The application processes input line-by-line, allowing it to handle massive datasets with constant memory usage (O(1)).
 - **Optimized Data Structures**: Uses `__slots__` in DTOs to reduce memory overhead by approximately 40% per object.
 
+### Robustness & Validations
+- **Inventory Protection**: The system prevents selling more shares than currently owned, raising explicit errors to maintain data integrity.
+- **Fail-Fast Configuration**: The application validates config.yml at startup and halts immediately if missing or invalid, preventing silent failures.
 ---
 
 ## 📂 Project Structure
@@ -64,8 +67,7 @@ capital_gains/
 ├── config.yml              # Externalized configuration rules
 ├── Dockerfile              # Container definition
 ├── Makefile                # Automation scripts
-├── requirements.txt        # Dependencies
-└── sonar-project.properties # Static Analysis Config
+└── requirements.txt        # Dependencies
    ```
 
 ## 🛠️ Installation & Setup
@@ -84,15 +86,15 @@ Or simply
 
 To simplify common development tasks, a `Makefile` is included. You can use the following commands instead of typing long instructions:
 
-| Command                       | Description                                      |
-|:------------------------------|:-------------------------------------------------|
-| `make install`                | Installs project dependencies (`requirements.txt`). |
-| `make test`                   | Runs the full test suite with verbose output.    |
-| `make run`                    | Runs the application in interactive mode.        |
-| `make docker-build`           | Builds the Docker image.                         |
-| `make docker-run`             | Runs the application inside a Docker container.  |
-| `make clean`                  | Removes cache files, build artifacts, and logs.  |
-| `make sonar token=...`        | Runs SonarQube analysis (requires local server).  |
+| Command                   | Description                                                |
+|:--------------------------|:-----------------------------------------------------------|
+| `make install`            | Installs project dependencies (`requirements.txt`).        |
+| `make test`               | Runs the full test suite with verbose output.              |
+| `make run`                | Runs the application in interactive mode.                  |
+| `make docker-build`       | Builds the Docker image.                                   |
+| `make docker-run`         | Runs the application inside a Docker container.            |
+| `make docker`             | Builds and Runs the application inside a Docker container. |
+| `make clean`              | Removes cache files, build artifacts, and logs.            |
 
 ## 📌 Configuration
 
