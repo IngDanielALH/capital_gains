@@ -47,7 +47,7 @@ sonar:
 		-v "$(PWD):/usr/src" \
 		sonarsource/sonar-scanner-cli \
 		-Dsonar.projectKey=capital-gains \
-		-Dsonar.sources=capital_gains \
+		-Dsonar.sources=Capital_Gains \
 		-Dsonar.tests=tests \
 		-Dsonar.host.url=http://host.docker.internal:9000 \
 		-Dsonar.token=$(token)
