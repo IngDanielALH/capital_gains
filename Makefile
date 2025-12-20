@@ -41,11 +41,13 @@ docker: docker-build docker-run
 
 sonar:
 	$(PYTHON) -m pytest --cov=capital_gains --cov-report=xml
+	# FIX: Usamos perl para compatibilidad universal
 	perl -i -pe "s|$(PWD)|/usr/src|g" coverage.xml
 	docker run --rm \
-		-v "$$(pwd):/usr/src" \
+		-v "$(PWD):/usr/src" \
 		sonarsource/sonar-scanner-cli \
 		-Dsonar.projectKey=capital-gains \
-		-Dsonar.sources=. \
+		-Dsonar.sources=capital_gains \
+		-Dsonar.tests=tests \
 		-Dsonar.host.url=http://host.docker.internal:9000 \
 		-Dsonar.token=$(token)
