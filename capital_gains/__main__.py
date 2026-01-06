@@ -1,8 +1,8 @@
 import sys
 import json
-from capital_gains.configuration import ConfigLoader
+from capital_gains.configuration.config_loader import ConfigLoader
 from capital_gains.dto.transaction_dto import TransactionDTO
-from capital_gains.service import parse_operations
+from capital_gains.service.gains_service import parse_operations
 
 
 def main():
@@ -12,6 +12,9 @@ def main():
     if config:
         tax_percentage = config.get('taxes', {}).get('sell', {}).get('percentage', 0.0)
         limit_without_tax = config.get('taxes', {}).get('sell', {}).get('limit_without_taxes', 0.0)
+
+        if sys.stdin.isatty():
+            print("Program ready. Please enter operations (JSON Array):", file=sys.stderr)
 
         for line in sys.stdin:
             line = line.strip()
@@ -35,7 +38,7 @@ def main():
                 print(json.dumps(list(result_generator)))
 
             except json.JSONDecodeError:
-                print("Error al parsear información de entrada", file=sys.stderr)
+                print(f"Error: Invalid JSON format provided -> {line}", file=sys.stderr)
 
 
 if __name__ == "__main__":

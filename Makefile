@@ -27,6 +27,6 @@ docker-build:
 	docker build -t capital-gains .
 
 docker-run:
-	docker run -i --rm capital-gains
+	docker run -i$$( [ -t 0 ] && echo t ) --rm capital-gains
 
 docker: docker-build docker-run
