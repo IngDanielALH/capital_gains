@@ -4,7 +4,6 @@ from capital_gains.dto.tax_dto import TaxDTO
 from capital_gains.utils.constants import Constants
 from capital_gains.utils.math_utils import calculate_weighted_price
 
-
 TWO_PLACES = Decimal("0.00")
 
 
@@ -59,6 +58,7 @@ class BuyStrategy(OperationStrategy):
     Its primary responsibility is to recalculate the Weighted Average Price (WAP)
     and update the total quantity in the portfolio state.
     """
+
     def execute(self, state: PortfolioState, operation, tax_config) -> TaxDTO:
         """
                 Executes the logic for a 'Buy' operation.
@@ -100,6 +100,7 @@ class SellStrategy(OperationStrategy):
 
     This strategy handles profit calculation, loss deduction, and tax application.
     """
+
     def execute(self, state: PortfolioState, operation, tax_config) -> TaxDTO:
         """
         Executes a sell operation applying the specific tax rules.
