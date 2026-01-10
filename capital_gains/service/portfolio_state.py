@@ -81,15 +81,17 @@ class BuyStrategy(OperationStrategy):
                 """
         unit_cost = Decimal(str(operation.get_unit_cost()))
         quantity = Decimal(str(operation.get_quantity()))
+        fee = Decimal(str(operation.get_fee()))
 
-        if state.total_quantity == 0:
-            state.weighted_average_price = unit_cost
-            state.total_quantity = quantity
-        else:
-            state.weighted_average_price = calculate_weighted_price(
-                state.total_quantity, quantity, state.weighted_average_price, unit_cost
-            )
-            state.total_quantity += quantity
+        # ELIMINA el if/else. Usa siempre la fórmula general.
+        state.weighted_average_price = calculate_weighted_price(
+            state.total_quantity,
+            quantity,
+            state.weighted_average_price,
+            unit_cost,
+            fee
+        )
+        state.total_quantity += quantity
 
         return TaxDTO(0.0)
 
@@ -123,6 +125,7 @@ class SellStrategy(OperationStrategy):
         """
         unit_cost = Decimal(str(operation.get_unit_cost()))
         quantity = Decimal(str(operation.get_quantity()))
+        fee = Decimal(str(operation.get_fee()))
 
         if state.total_quantity < quantity:
             raise ValueError(
@@ -133,7 +136,7 @@ class SellStrategy(OperationStrategy):
 
         sell_total_amount = unit_cost * quantity
         purchase_cost = state.weighted_average_price * quantity
-        benefit = sell_total_amount - purchase_cost
+        benefit = sell_total_amount - purchase_cost - fee
 
         state.total_quantity -= quantity
 

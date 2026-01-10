@@ -4,7 +4,7 @@ from decimal import Decimal, ROUND_HALF_UP
 TWO_PLACES = Decimal("0.00")
 
 
-def calculate_weighted_price(total_quantity, quantity, weighted_average_price, unit_cost):
+def calculate_weighted_price(total_quantity, quantity, weighted_average_price, unit_cost, fee):
     """
         Calculates the new Weighted Average Price (WAP) after a purchase.
 
@@ -15,6 +15,7 @@ def calculate_weighted_price(total_quantity, quantity, weighted_average_price, u
             WAP = ((Current_Qty * Current_WAP) + (New_Qty * New_Cost)) / (New_Total_Qty)
 
         Args:
+            fee (Decimal): Posible value for taxes
             total_quantity (Decimal): The total number of stocks held before this transaction.
             quantity (Decimal): The number of new stocks acquired in this transaction.
             weighted_average_price (Decimal): The current weighted average price.
@@ -24,7 +25,7 @@ def calculate_weighted_price(total_quantity, quantity, weighted_average_price, u
             Decimal: The new weighted average price, rounded to 2 decimal places
             using the ROUND_HALF_UP strategy. Returns 0.00 if the new total quantity is 0.
         """
-    total_value = (total_quantity * weighted_average_price) + (quantity * unit_cost)
+    total_value = (total_quantity * weighted_average_price) + (quantity * unit_cost + fee)
     new_total_quantity = total_quantity + quantity
 
     if new_total_quantity == 0:
