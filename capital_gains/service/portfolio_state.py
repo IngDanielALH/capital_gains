@@ -4,7 +4,6 @@ from capital_gains.dto.tax_dto import TaxDTO
 from capital_gains.utils.constants import Constants
 from capital_gains.utils.math_utils import calculate_weighted_price
 
-
 TWO_PLACES = Decimal("0.00")
 
 
@@ -22,22 +21,27 @@ class PortfolioState:
     """
 
     def __init__(self):
-        self.consecutive_errors = 0
-        self.is_blocked = False
         self.weighted_average_price = Decimal("0.00")
         self.total_quantity = Decimal("0")
         self.total_lose = Decimal("0.00")
-        self.total_stock_errors = 0
+        self.stocks_owned = 0  # Ejemplo
+        # Nuevos atributos para el requerimiento
+        self._consecutive_errors = 0
+        self._is_blocked = False
 
-    def record_error(self):
-        """Registra un error. Si llega a 3, bloquea la cuenta."""
-        self.consecutive_errors += 1
-        if self.consecutive_errors >= 3:
-            self.is_blocked = True
+    @property
+    def is_blocked(self):
+        return self._is_blocked
 
-    def reset_errors(self):
-        """Si la operación es exitosa, reiniciamos el contador (porque pide 'consecutivos')"""
-        self.consecutive_errors = 0
+    def record_validation_error(self):
+        """Registra un error. Si llega a 3 consecutivos, bloquea la cuenta."""
+        self._consecutive_errors += 1
+        if self._consecutive_errors >= 3:
+            self._is_blocked = True
+
+    def reset_validation_errors(self):
+        """Reinicia el contador al tener una operación exitosa."""
+        self._consecutive_errors = 0
 
 
 class OperationStrategy(ABC):
@@ -72,6 +76,7 @@ class BuyStrategy(OperationStrategy):
     Its primary responsibility is to recalculate the Weighted Average Price (WAP)
     and update the total quantity in the portfolio state.
     """
+
     def execute(self, state: PortfolioState, operation, tax_config) -> TaxDTO:
         """
                 Executes the logic for a 'Buy' operation.
@@ -113,6 +118,7 @@ class SellStrategy(OperationStrategy):
 
     This strategy handles profit calculation, loss deduction, and tax application.
     """
+
     def execute(self, state: PortfolioState, operation, tax_config) -> TaxDTO:
         """
         Executes a sell operation applying the specific tax rules.

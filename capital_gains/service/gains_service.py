@@ -7,24 +7,9 @@ from capital_gains.utils.constants import Constants
 
 def parse_operations(operations, tax_percentage, limit_without_tax):
     """
-        Orchestrates the processing of financial operations to calculate capital gains taxes.
-
-        This function acts as the main entry point for the business logic. It initializes
-        the portfolio state and iterates through the input stream of operations.
-        It utilizes the **Strategy Pattern** to delegate the specific logic (Buy/Sell)
-        to the appropriate handler, ensuring adherence to the Open/Closed Principle.
-
-        It implements **Lazy Loading** by yielding results one by one, allowing the
-        application to process massive datasets with constant memory usage (O(1)).
-
-        Args:
-            operations (Iterator[TransactionDTO]): A stream of transaction objects to process.
-            tax_percentage (float | int): The tax rate to apply on profits (e.g., 20).
-            limit_without_tax (float | int): The monetary threshold for tax exemption (e.g., 20000).
-
-        Yields:
-            dict: A dictionary containing the calculated tax for the processed operation.
-        """
+    Orchestrates the processing of financial operations...
+    (Docstring original...)
+    """
     state = PortfolioState()
 
     tax_rate = Decimal(str(tax_percentage)) / Decimal("100")
@@ -32,16 +17,37 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
     tax_config = (tax_rate, limit_tax)
 
     for operation in operations:
-        op_type = operation.get_operation()
 
+        # 1. REGLA DE BLOQUEO: Verificamos antes de intentar cualquier cosa.
+        # Si la cuenta ya se bloqueó en la iteración anterior, cortamos aquí.
+        if state.is_blocked:
+            yield Error(Constants.BLOCKED_ACCOUNT_ERROR).to_dict()
+            continue
+
+        op_type = operation.get_operation()
         strategy = STRATEGIES.get(op_type)
 
         if not strategy:
             continue
 
         try:
+            # 2. INTENTO DE EJECUCIÓN
             result_dto = strategy.execute(state, operation, tax_config)
+
+            # 3. ÉXITO: Si la línea anterior no falló, reiniciamos el contador
+            # porque el requerimiento especifica errores "consecutivos".
+            state.reset_validation_errors()
+
         except ValueError:
+            # 4. FALLO: Manejamos la excepción de negocio (Stock insuficiente)
+
+            # A) Registramos el error en el estado (aquí cuenta 1, 2, 3...)
+            state.record_validation_error()
+
+            # B) Generamos el error actual
+            # Nota: Aunque sea el 3er error y state.is_blocked ya sea True internamente,
+            # el requerimiento pide mostrar el error de "Can't sell" en esta línea,
+            # y el "Blocked" hasta la siguiente.
             result_dto = Error(Constants.OUT_OF_STOCK_ERROR)
 
         yield result_dto.to_dict()
