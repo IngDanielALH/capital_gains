@@ -1,5 +1,8 @@
 from decimal import Decimal
+
+from capital_gains.dto.error import Error
 from capital_gains.service.portfolio_state import PortfolioState, STRATEGIES
+from capital_gains.utils.constants import Constants
 
 
 def parse_operations(operations, tax_percentage, limit_without_tax):
@@ -36,6 +39,9 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
         if not strategy:
             continue
 
-        result_dto = strategy.execute(state, operation, tax_config)
+        try:
+            result_dto = strategy.execute(state, operation, tax_config)
+        except ValueError:
+            result_dto = Error(Constants.OUT_OF_STOCK_ERROR)
 
         yield result_dto.to_dict()

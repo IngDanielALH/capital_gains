@@ -3,6 +3,7 @@ import unittest
 
 from capital_gains.dto.transaction_dto import TransactionDTO
 from capital_gains.service.gains_service import parse_operations
+from capital_gains.utils.constants import Constants
 
 
 class TestGainService(unittest.TestCase):
@@ -321,10 +322,30 @@ class TestGainService(unittest.TestCase):
             for t in json.loads(transactions_json)
         ]
 
-        with self.assertRaises(ValueError) as context:
-            list(parse_operations(operations, 20, 20000))
+        expected = [{"tax": 0.00}, {"error": Constants.OUT_OF_STOCK_ERROR}]
 
-        self.assertIn("Insufficient stock", str(context.exception))
+        """with self.assertRaises(ValueError) as context:
+            list(parse_operations(operations, 20, 20000))"""
+        #self.assertIn("Insufficient stock", str(context.exception))
+
+        result = list(parse_operations(operations, 20, 20000))
+        self.assertEqual(expected, result)
+
+    def test_case_inventory_validation_multiple_sells(self):
+        transactions_json = '''
+        [{"operation":"buy", "unit-cost": 10, "quantity": 10000}, {"operation":"sell", 
+        "unit-cost":20, "quantity": 11000}, {"operation":"sell", "unit-cost": 10, "quantity": 5000}]
+        '''
+
+        operations = [
+            TransactionDTO(t["operation"], t["unit-cost"], t["quantity"])
+            for t in json.loads(transactions_json)
+        ]
+
+        expected = [{'tax': 0.0}, {'error': "Can't sell more stocks than you have"}, {'tax': 0.0}]
+
+        result = list(parse_operations(operations, 20, 20000))
+        self.assertEqual(expected, result)
 
     def test_case_independent_simulations(self):
         """
@@ -360,3 +381,24 @@ class TestGainService(unittest.TestCase):
 
         self.assertEqual(expected_1, result_1)
         self.assertEqual(expected_2, result_2)
+
+    def test_case_blocked_account(self):
+        transactions_json = '''
+        [{"operation":"sell", "unit-cost":20, "quantity": 10000},
+{"operation":"sell", "unit-cost":20, "quantity": 10000},
+{"operation":"sell", "unit-cost":20, "quantity": 10000},
+{"operation":"buy", "unit-cost":10, "quantity": 10000}]
+        '''
+
+        operations = [
+            TransactionDTO(t["operation"], t["unit-cost"], t["quantity"])
+            for t in json.loads(transactions_json)
+        ]
+
+        expected = [{"error": "Can't sell more stocks than you have"},
+                    {"error": "Can't sell more stocks than you have"},
+                    {"error": "Can't sell more stocks than you have"},
+                    {"error": "Your account is blocked"}]
+
+        result = list(parse_operations(operations, 20, 20000))
+        self.assertEqual(expected, result)

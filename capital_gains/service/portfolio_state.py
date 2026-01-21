@@ -22,9 +22,22 @@ class PortfolioState:
     """
 
     def __init__(self):
+        self.consecutive_errors = 0
+        self.is_blocked = False
         self.weighted_average_price = Decimal("0.00")
         self.total_quantity = Decimal("0")
         self.total_lose = Decimal("0.00")
+        self.total_stock_errors = 0
+
+    def record_error(self):
+        """Registra un error. Si llega a 3, bloquea la cuenta."""
+        self.consecutive_errors += 1
+        if self.consecutive_errors >= 3:
+            self.is_blocked = True
+
+    def reset_errors(self):
+        """Si la operación es exitosa, reiniciamos el contador (porque pide 'consecutivos')"""
+        self.consecutive_errors = 0
 
 
 class OperationStrategy(ABC):
@@ -127,6 +140,8 @@ class SellStrategy(OperationStrategy):
             raise ValueError(
                 f"Insufficient stock. Owned: {state.total_quantity}, Selling: {quantity}"
             )
+        else:
+            state.total_stock_errors = 0
 
         tax_rate, limit_tax = tax_config
 
