@@ -26,3 +26,4 @@ dist/
 build/
 large_input.txt
 .coverage
+/.sonar/
