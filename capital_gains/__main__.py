@@ -34,6 +34,18 @@ def main():
 
                 print(json.dumps(list(result_generator)))
 
+                """
+                sys.stdout.write("[")
+                first = True
+
+                for result in result_generator:
+                    if not first:
+                        sys.stdout.write(", ")
+                    sys.stdout.write(json.dumps(result))
+                    first = False
+
+                sys.stdout.write("]\n")"""
+
             except json.JSONDecodeError:
                 print("Error al parsear información de entrada", file=sys.stderr)
 
