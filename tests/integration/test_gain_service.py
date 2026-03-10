@@ -402,3 +402,23 @@ class TestGainService(unittest.TestCase):
 
         result = list(parse_operations(operations, 20, 20000))
         self.assertEqual(expected, result)
+
+    def test_case_blocked_account_2(self):
+            transactions_json = '''
+            [{"operation":"sell", "unit-cost":20, "quantity": 10000},
+    {"operation":"sell", "unit-cost":20, "quantity": 10000},
+    {"operation":"sell", "unit-cost":20, "quantity": 10000}]
+            '''
+
+            operations = [
+                TransactionDTO(t["operation"], t["unit-cost"], t["quantity"])
+                for t in json.loads(transactions_json)
+            ]
+
+            expected = [{"error": "Can't sell more stocks than you have"},
+                        {"error": "Can't sell more stocks than you have"},
+                        {"error": "Can't sell more stocks than you have"},
+                        {"error": "Your account is blocked"}]
+
+            result = list(parse_operations(operations, 20, 20000))
+            self.assertEqual(expected, result)

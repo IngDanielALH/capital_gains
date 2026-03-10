@@ -7,8 +7,9 @@ from capital_gains.utils.constants import Constants
 
 def parse_operations(operations, tax_percentage, limit_without_tax):
     """
-    Orchestrates the processing of financial operations...
-    (Docstring original...)
+    Orchestrates the processing of financial operations to calculate capital gains taxes.
+
+    It implements the logic to block the account after 3 consecutive validation errors.
     """
     state = PortfolioState()
 
@@ -19,7 +20,8 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
     for operation in operations:
 
         # 1. REGLA DE BLOQUEO: Verificamos antes de intentar cualquier cosa.
-        # Si la cuenta ya se bloqueó en la iteración anterior, cortamos aquí.
+        # Si la cuenta ya se bloqueó (en la iteración anterior o justo en la anterior),
+        # rechazamos cualquier operación nueva.
         if state.is_blocked:
             yield Error(Constants.BLOCKED_ACCOUNT_ERROR).to_dict()
             continue
@@ -34,20 +36,26 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
             # 2. INTENTO DE EJECUCIÓN
             result_dto = strategy.execute(state, operation, tax_config)
 
-            # 3. ÉXITO: Si la línea anterior no falló, reiniciamos el contador
-            # porque el requerimiento especifica errores "consecutivos".
+            # 3. ÉXITO
+            # Si la ejecución fue correcta, reiniciamos el contador de errores consecutivos.
             state.reset_validation_errors()
 
-        except ValueError:
-            # 4. FALLO: Manejamos la excepción de negocio (Stock insuficiente)
+            # Emitimos el resultado exitoso
+            yield result_dto.to_dict()
 
-            # A) Registramos el error en el estado (aquí cuenta 1, 2, 3...)
+        except ValueError:
+            # 4. FALLO DE NEGOCIO (Stock insuficiente)
+
+            # A) Registramos el error en el estado.
+            # Si llegamos a 3, state.is_blocked se volverá True internamente.
             state.record_validation_error()
 
-            # B) Generamos el error actual
-            # Nota: Aunque sea el 3er error y state.is_blocked ya sea True internamente,
-            # el requerimiento pide mostrar el error de "Can't sell" en esta línea,
-            # y el "Blocked" hasta la siguiente.
-            result_dto = Error(Constants.OUT_OF_STOCK_ERROR)
+            # B) Emitimos SIEMPRE el error específico de la operación ("Can't sell...")
+            yield Error(Constants.OUT_OF_STOCK_ERROR).to_dict()
 
-        yield result_dto.to_dict()
+            # C) CONDICIÓN DE BLOQUEO INMEDIATO
+            # Si esta falla específica fue la "gota que colmó el vaso" (error #3),
+            # debemos avisar INMEDIATAMENTE que la cuenta ha sido bloqueada.
+            # Esto genera el 4to output en una entrada de 3 operaciones.
+            if state.is_blocked:
+                yield Error(Constants.BLOCKED_ACCOUNT_ERROR).to_dict()
