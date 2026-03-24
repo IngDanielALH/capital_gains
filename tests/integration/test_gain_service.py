@@ -404,25 +404,25 @@ class TestGainService(unittest.TestCase):
         self.assertEqual(expected, result)
 
     def test_case_blocked_account_2(self):
-            transactions_json = '''
+        transactions_json = '''
             [{"operation":"sell", "unit-cost":20, "quantity": 10000},
     {"operation":"sell", "unit-cost":20, "quantity": 10000},
     {"operation":"sell", "unit-cost":20, "quantity": 10000},
     {"operation":"sell", "unit-cost":20, "quantity": 10000}]
             '''
 
-            operations = [
-                TransactionDTO(t["operation"], t["unit-cost"], t["quantity"])
-                for t in json.loads(transactions_json)
-            ]
+        operations = [
+            TransactionDTO(t["operation"], t["unit-cost"], t["quantity"])
+            for t in json.loads(transactions_json)
+        ]
 
-            expected = [{"error": "Can't sell more stocks than you have"},
-                        {"error": "Can't sell more stocks than you have"},
-                        {"error": "Can't sell more stocks than you have"},
-                        {"error": "Your account is blocked"}]
+        expected = [{"error": "Can't sell more stocks than you have"},
+                    {"error": "Can't sell more stocks than you have"},
+                    {"error": "Can't sell more stocks than you have"},
+                    {"error": "Your account is blocked"}]
 
-            result = list(parse_operations(operations, 20, 20000))
-            self.assertEqual(expected, result)
+        result = list(parse_operations(operations, 20, 20000))
+        self.assertEqual(expected, result)
 
     # --- Req 1: Stock Quantity Validation ---
 
@@ -463,8 +463,8 @@ class TestGainService(unittest.TestCase):
         operations = [
             TransactionDTO("sell", 20.00, 100),  # err #1
             TransactionDTO("sell", 20.00, 100),  # err #2
-            TransactionDTO("buy", 10.00, 100),   # success → resets counter
-            TransactionDTO("buy", 10.00, 100),   # must not be blocked
+            TransactionDTO("buy", 10.00, 100),  # success → resets counter
+            TransactionDTO("buy", 10.00, 100),  # must not be blocked
         ]
         result = list(parse_operations(operations, 20, 20000))
         expected = [
@@ -481,10 +481,10 @@ class TestGainService(unittest.TestCase):
         operations = [
             TransactionDTO("sell", 20.00, 100),  # err #1 (consecutive=1)
             TransactionDTO("sell", 20.00, 100),  # err #2 (consecutive=2)
-            TransactionDTO("buy", 10.00, 100),   # success → resets to 0
+            TransactionDTO("buy", 10.00, 100),  # success → resets to 0
             TransactionDTO("sell", 20.00, 200),  # err #1 again (only 100 owned; consecutive=1)
             TransactionDTO("sell", 20.00, 200),  # err #2 again (consecutive=2)
-            TransactionDTO("buy", 10.00, 100),   # success → resets to 0 again
+            TransactionDTO("buy", 10.00, 100),  # success → resets to 0 again
         ]
         result = list(parse_operations(operations, 20, 20000))
         expected = [
@@ -503,9 +503,9 @@ class TestGainService(unittest.TestCase):
             TransactionDTO("sell", 20.00, 10000),  # err #1
             TransactionDTO("sell", 20.00, 10000),  # err #2
             TransactionDTO("sell", 20.00, 10000),  # err #3 → triggers block
-            TransactionDTO("buy", 10.00, 10000),   # blocked
-            TransactionDTO("buy", 10.00, 5000),    # blocked
-            TransactionDTO("sell", 20.00, 1),      # blocked
+            TransactionDTO("buy", 10.00, 10000),  # blocked
+            TransactionDTO("buy", 10.00, 5000),  # blocked
+            TransactionDTO("sell", 20.00, 1),  # blocked
         ]
         result = list(parse_operations(operations, 20, 20000))
         expected = [
