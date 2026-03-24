@@ -52,10 +52,3 @@ def parse_operations(operations, tax_percentage, limit_without_tax):
 
             # B) Emitimos SIEMPRE el error específico de la operación ("Can't sell...")
             yield Error(Constants.OUT_OF_STOCK_ERROR).to_dict()
-
-            # C) CONDICIÓN DE BLOQUEO INMEDIATO
-            # Si esta falla específica fue la "gota que colmó el vaso" (error #3),
-            # debemos avisar INMEDIATAMENTE que la cuenta ha sido bloqueada.
-            # Esto genera el 4to output en una entrada de 3 operaciones.
-            if state.is_blocked:
-                yield Error(Constants.BLOCKED_ACCOUNT_ERROR).to_dict()

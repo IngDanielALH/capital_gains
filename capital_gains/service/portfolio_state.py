@@ -24,7 +24,6 @@ class PortfolioState:
         self.weighted_average_price = Decimal("0.00")
         self.total_quantity = Decimal("0")
         self.total_lose = Decimal("0.00")
-        self.stocks_owned = 0  # Ejemplo
         # Nuevos atributos para el requerimiento
         self._consecutive_errors = 0
         self._is_blocked = False
@@ -146,8 +145,6 @@ class SellStrategy(OperationStrategy):
             raise ValueError(
                 f"Insufficient stock. Owned: {state.total_quantity}, Selling: {quantity}"
             )
-        else:
-            state.total_stock_errors = 0
 
         tax_rate, limit_tax = tax_config
 

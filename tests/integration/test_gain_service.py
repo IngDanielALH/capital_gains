@@ -407,6 +407,7 @@ class TestGainService(unittest.TestCase):
             transactions_json = '''
             [{"operation":"sell", "unit-cost":20, "quantity": 10000},
     {"operation":"sell", "unit-cost":20, "quantity": 10000},
+    {"operation":"sell", "unit-cost":20, "quantity": 10000},
     {"operation":"sell", "unit-cost":20, "quantity": 10000}]
             '''
 
@@ -422,3 +423,97 @@ class TestGainService(unittest.TestCase):
 
             result = list(parse_operations(operations, 20, 20000))
             self.assertEqual(expected, result)
+
+    # --- Req 1: Stock Quantity Validation ---
+
+    def test_sell_exactly_owned_quantity_succeeds(self):
+        """Selling exactly the available quantity is valid (boundary case)."""
+        operations = [
+            TransactionDTO("buy", 10.00, 100),
+            TransactionDTO("sell", 20.00, 100),
+        ]
+        result = list(parse_operations(operations, 20, 20000))
+        expected = [{"tax": 0.0}, {"tax": 0.0}]
+        self.assertEqual(expected, result)
+
+    def test_sell_with_no_inventory_errors(self):
+        """Selling when no stocks have been bought produces an error."""
+        operations = [
+            TransactionDTO("sell", 20.00, 1),
+        ]
+        result = list(parse_operations(operations, 20, 20000))
+        expected = [{"error": "Can't sell more stocks than you have"}]
+        self.assertEqual(expected, result)
+
+    def test_failed_sell_preserves_inventory(self):
+        """A failed oversell does not deduct from the existing inventory."""
+        operations = [
+            TransactionDTO("buy", 10.00, 100),
+            TransactionDTO("sell", 20.00, 150),  # fails: only 100 available
+            TransactionDTO("sell", 20.00, 100),  # succeeds: inventory was not reduced
+        ]
+        result = list(parse_operations(operations, 20, 20000))
+        expected = [{"tax": 0.0}, {"error": "Can't sell more stocks than you have"}, {"tax": 0.0}]
+        self.assertEqual(expected, result)
+
+    # --- Req 2: Stock Quantity Error Limit (account blocking) ---
+
+    def test_two_consecutive_errors_do_not_block(self):
+        """Two consecutive errors followed by a success must NOT block the account."""
+        operations = [
+            TransactionDTO("sell", 20.00, 100),  # err #1
+            TransactionDTO("sell", 20.00, 100),  # err #2
+            TransactionDTO("buy", 10.00, 100),   # success → resets counter
+            TransactionDTO("buy", 10.00, 100),   # must not be blocked
+        ]
+        result = list(parse_operations(operations, 20, 20000))
+        expected = [
+            {"error": "Can't sell more stocks than you have"},
+            {"error": "Can't sell more stocks than you have"},
+            {"tax": 0.0},
+            {"tax": 0.0},
+        ]
+        self.assertEqual(expected, result)
+
+    def test_success_resets_error_counter(self):
+        """A successful operation resets the consecutive-error counter,
+        so two separate groups of 2 errors never trigger a block."""
+        operations = [
+            TransactionDTO("sell", 20.00, 100),  # err #1 (consecutive=1)
+            TransactionDTO("sell", 20.00, 100),  # err #2 (consecutive=2)
+            TransactionDTO("buy", 10.00, 100),   # success → resets to 0
+            TransactionDTO("sell", 20.00, 200),  # err #1 again (only 100 owned; consecutive=1)
+            TransactionDTO("sell", 20.00, 200),  # err #2 again (consecutive=2)
+            TransactionDTO("buy", 10.00, 100),   # success → resets to 0 again
+        ]
+        result = list(parse_operations(operations, 20, 20000))
+        expected = [
+            {"error": "Can't sell more stocks than you have"},
+            {"error": "Can't sell more stocks than you have"},
+            {"tax": 0.0},
+            {"error": "Can't sell more stocks than you have"},
+            {"error": "Can't sell more stocks than you have"},
+            {"tax": 0.0},
+        ]
+        self.assertEqual(expected, result)
+
+    def test_blocked_account_rejects_all_subsequent_operations(self):
+        """Once blocked, every subsequent operation (buy or sell) is rejected."""
+        operations = [
+            TransactionDTO("sell", 20.00, 10000),  # err #1
+            TransactionDTO("sell", 20.00, 10000),  # err #2
+            TransactionDTO("sell", 20.00, 10000),  # err #3 → triggers block
+            TransactionDTO("buy", 10.00, 10000),   # blocked
+            TransactionDTO("buy", 10.00, 5000),    # blocked
+            TransactionDTO("sell", 20.00, 1),      # blocked
+        ]
+        result = list(parse_operations(operations, 20, 20000))
+        expected = [
+            {"error": "Can't sell more stocks than you have"},
+            {"error": "Can't sell more stocks than you have"},
+            {"error": "Can't sell more stocks than you have"},
+            {"error": "Your account is blocked"},
+            {"error": "Your account is blocked"},
+            {"error": "Your account is blocked"},
+        ]
+        self.assertEqual(expected, result)
